@@ -162,5 +162,4 @@ public class ActiveMQService implements MQService {
         return session.createConsumer(destination);
     }
 
-
 }
