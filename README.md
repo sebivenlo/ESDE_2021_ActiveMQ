@@ -8,5 +8,6 @@ Prequisites:
 
 
 Docker image of activemq can bbe pulled using the following command:
-
+```
 docker pull jof34/dummy-active-mq
+```
