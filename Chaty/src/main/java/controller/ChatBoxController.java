@@ -165,7 +165,7 @@ public class ChatBoxController implements Initializable {
             Connection connection = activeMQService.createConnection();
 
             // 2.1.2 Create a session object with the Session.AUTO_ACKNOWLEDGE
-            Session session = activeMQService.createSession(connection, Session.AUTO_ACKNOWLEDGE);
+            Session session = activeMQService.createSession(connection, Session.CLIENT_ACKNOWLEDGE);
 
             // 2.1.3 Create a Destination Object using the TOPIC_NAME
             Destination destination = activeMQService.createDestination(session, ChatRoomController.TOPIC_NAME);
