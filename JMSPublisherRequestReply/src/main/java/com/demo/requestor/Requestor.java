@@ -2,7 +2,6 @@ package com.demo.requestor;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
 import org.apache.commons.lang3.RandomStringUtils;
-import org.apache.commons.lang3.StringUtils;
 
 import javax.jms.*;
 import java.util.concurrent.CountDownLatch;

@@ -3,7 +3,6 @@ package com.demo.responder;
 import org.apache.activemq.ActiveMQConnectionFactory;
 
 import javax.jms.*;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Class which represents the responder application. The responder receives a message and sends a response to the arrived destination

@@ -29,8 +29,7 @@ public class Consumer {
 			Random rand = new Random();
 			Connection connection = factory.createConnection();
 			connection.setClientID(String.valueOf(rand.nextInt(100)));
-			connection.start();
-			
+
 			Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
 			
 			Topic topic = session.createTopic("Topo-Remoto-testo");
@@ -44,6 +43,7 @@ public class Consumer {
 					e.printStackTrace();
 				}
 			});
+			connection.start();
 		} catch (JMSException e) {
 			e.printStackTrace();
 		}
