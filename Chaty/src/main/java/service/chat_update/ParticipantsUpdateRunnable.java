@@ -99,7 +99,7 @@ public class ParticipantsUpdateRunnable implements Runnable {
                     System.out.println(e.getStackTrace());
                 }
             });
-            // start the conenction
+            // start the connection
             this.connection.start();
         } catch (JMSException e) {
             System.out.println(e.getStackTrace());
