@@ -21,7 +21,7 @@ public class ActiveMQBrokerInfoRetrieverImpl implements ActiveMQBrokerInfoRetrie
      */
 
     /**
-     * Retrieve topic names list to be used as chatRooms
+     * Retrieves topic names list to be used as chat rooms
      *
      * @return a list of the available topic names
      */
