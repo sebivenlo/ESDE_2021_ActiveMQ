@@ -161,13 +161,13 @@ public class ChatBoxController implements Initializable {
         MQService activeMQService = new ActiveMQService();
 
         try {
-            // 2.1.1 Create a connection object
+            // 2.1.1 Create a connection object using the activeMQService object
             Connection connection = activeMQService.createConnection();
 
-            // 2.1.2 Create a session object with the Session.AUTO_ACKNOWLEDGE
+            // 2.1.2 Create a session object with the Session.CLIENT_ACKNOWLEDGE
             Session session = activeMQService.createSession(connection, Session.CLIENT_ACKNOWLEDGE);
 
-            // 2.1.3 Create a Destination Object using the TOPIC_NAME
+            // 2.1.3 Create a Destination Object using the ChatRoomController.TOPIC_NAME and session as params
             Destination destination = activeMQService.createDestination(session, ChatRoomController.TOPIC_NAME);
             // 2.1.4 Create MessageProducer using the createProducer private method which uses the session and connection objects from the previous methods
             MessageProducer producer = activeMQService.createMessageProducer(session, destination);
