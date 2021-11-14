@@ -32,7 +32,7 @@ public class Publisher {
 			}
 			
 			System.out.println("Message Published");
-
+			// close resources
 			producer.close();
 			session.close();
 			connection.close();

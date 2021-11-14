@@ -27,14 +27,15 @@ public class Consumer {
 		
 		try {
 			Random rand = new Random();
+			int subNumber = rand.nextInt(1000);
 			Connection connection = factory.createConnection();
-			connection.setClientID(String.valueOf(rand.nextInt(100)));
+			connection.setClientID("Consumer-" + subNumber);
 
 			Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
 			
-			Topic topic = session.createTopic("Topo-Remoto-testo");
-			
-			MessageConsumer consumer = session.createDurableSubscriber(topic, "Consumer-" + rand.nextInt(200));
+			Topic topic = session.createTopic("Topic-Name");
+
+			MessageConsumer consumer = session.createDurableSubscriber(topic, "Consumer-" + subNumber);
 			consumer.setMessageListener(message -> {
 				try {
 					System.out.println(message.getObjectProperty(USER) + " " + message.getObjectProperty(TIME));

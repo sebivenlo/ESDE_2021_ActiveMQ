@@ -25,7 +25,7 @@ public class Publisher {
 
             Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
 
-            Destination destination = session.createTopic("Topo-Remoto-testo");
+            Destination destination = session.createTopic("Topic-Name");
 
             MessageProducer producer = session.createProducer(destination);
 
@@ -37,7 +37,7 @@ public class Publisher {
             producer.send(message);
 
             System.out.println("Message published to topic");
-
+            // close resources
             producer.close();
             session.close();
             connection.close();

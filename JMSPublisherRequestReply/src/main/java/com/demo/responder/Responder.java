@@ -59,6 +59,7 @@ public class Responder implements MessageListener {
             if (respondTo != null) {
                 // receive the message and print it
                 TextMessage textMessage = (TextMessage) message;
+                // print received message
                 System.out.println(textMessage.getText());
 
                 // if it receives the shutdown message, close the resources

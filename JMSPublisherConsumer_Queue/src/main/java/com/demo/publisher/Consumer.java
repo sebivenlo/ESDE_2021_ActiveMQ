@@ -20,8 +20,7 @@ public class Consumer {
 		
 		try {
 			Connection connection = factory.createConnection();
-			connection.start();
-			
+
 			Session session = connection.createSession(false, Session.CLIENT_ACKNOWLEDGE);
 			Destination destination = session.createQueue("demo");
 
@@ -38,6 +37,7 @@ public class Consumer {
 					}
 				}
 			});
+			connection.start();
 		} catch (JMSException e) {
 			e.printStackTrace();
 		}
