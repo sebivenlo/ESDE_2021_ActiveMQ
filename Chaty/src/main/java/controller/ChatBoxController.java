@@ -197,7 +197,7 @@ public class ChatBoxController implements Initializable {
      *
      * @param messageProducer {@link MessageProducer}
      * @param session         {@link Session}
-     * @param text            text field input
+     * @param text            text field input value
      * @throws JMSException
      */
     private void sendMessage(MessageProducer messageProducer, Session session, String text) throws JMSException {
