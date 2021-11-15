@@ -5,7 +5,8 @@ import org.apache.activemq.ActiveMQConnectionFactory;
 import javax.jms.*;
 
 /**
- * Class which represents the responder application. The responder receives a message and sends a response to the arrived destination
+ * Class which represents the responder application. The responder receives a message, process it
+ * and sends a response to the arrived destination
  */
 public class Responder implements MessageListener {
 
