@@ -37,6 +37,8 @@ public class ChatUpdaterRunnable implements Runnable {
     private MessageConsumer messageConsumer;
     private String topicName;
     private String subId;
+    private Gson gson;
+    private EncryptorDecryptor encryptorDecryptor;
 
     /**
      * 3.1. Implement the constructor using the newly created ActiveMQService
@@ -46,6 +48,8 @@ public class ChatUpdaterRunnable implements Runnable {
         this.chatBox = chatBox;
         this.subId = subId;
         this.topicName = topicName;
+        this.gson = new GsonBuilder().setPrettyPrinting().create();
+        this.encryptorDecryptor = new EncryptorDecryptor();
 
         try {
             // 3.1.1 create connection using the activeMQService
@@ -85,9 +89,6 @@ public class ChatUpdaterRunnable implements Runnable {
     @Override
     public void run() {
         // gson object which is used to deserialize the received message
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        EncryptorDecryptor encryptorDecryptor = new EncryptorDecryptor();
-
         try {
             this.messageConsumer.setMessageListener(message -> {
                 try {
