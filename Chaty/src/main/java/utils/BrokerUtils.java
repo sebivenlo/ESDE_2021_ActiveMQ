@@ -5,9 +5,9 @@ package utils;
  */
 public class BrokerUtils {
 
-    public static String QUEUE_USERNAME = "admin";
-    public static String QUEUE_PASSWORD = "admin";
-    public static String QUEUE_LOCATION = "tcp://localhost:61616";
+    public static String BROKER_USERNAME = "admin";
+    public static String BROKER_PASSWORD = "admin";
+    public static String BROKER_URL = "tcp://localhost:61616";
 
     public static String MESSAGE = "Message";
 }

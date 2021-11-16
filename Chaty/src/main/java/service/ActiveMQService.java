@@ -28,10 +28,10 @@ public class ActiveMQService implements MQService {
      */
     @Override
     public Connection createConnection() throws JMSException {
-        // 1.1.1 create a ConnectionFactory of type ActiveMQConnectionFactory using the QUEUE_USERNAME, QUEUE_PASSWORD and QUEUE_LOCATION
+        // 1.1.1 create a ConnectionFactory of type ActiveMQConnectionFactory using the BROKER_USERNAME, BROKER_PASSWORD and BROKER_URL
         // fields in the BrokerUtils class
-        ConnectionFactory factory = new ActiveMQConnectionFactory(BrokerUtils.QUEUE_USERNAME, BrokerUtils.QUEUE_PASSWORD,
-                BrokerUtils.QUEUE_LOCATION);
+        ConnectionFactory factory = new ActiveMQConnectionFactory(BrokerUtils.BROKER_USERNAME, BrokerUtils.BROKER_PASSWORD,
+                BrokerUtils.BROKER_URL);
         // 1.1.2 return a connection object from this factory
         return factory.createConnection();
     }
@@ -94,7 +94,8 @@ public class ActiveMQService implements MQService {
 
 
     /**
-     * 1.5 Create a new MessageConsumer using the given session, topic and subscriber name - Hint: One line of code
+     * 1.5 Create a new MessageConsumer (e.g durable subscriber) using the given session, topic and subscriber name
+     * - Hint: One line of code
      */
 
     /**
