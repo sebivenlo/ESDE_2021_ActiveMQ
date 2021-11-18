@@ -2,7 +2,6 @@ package com.demo.topic;
 
 import javax.jms.*;
 
-import javafx.scene.paint.Color;
 import org.apache.activemq.ActiveMQConnectionFactory;
 
 import java.time.LocalDateTime;
@@ -31,8 +30,8 @@ public class Publisher {
 
             Message message = session.createMessage();
             message.setObjectProperty(TIME, returnCurrentLocalDateTimeAsString());
-            message.setObjectProperty(USER, "Test-USer");
-            message.setObjectProperty(MESSAGE, "Heio");
+            message.setObjectProperty(USER, "Test-User");
+            message.setObjectProperty(MESSAGE, "Hello");
 
             producer.send(message);
 
