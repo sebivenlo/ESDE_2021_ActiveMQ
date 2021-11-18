@@ -13,17 +13,18 @@ import org.apache.activemq.ActiveMQConnectionFactory;
 public class Publisher {
 
 	public static void main(String[] args) {
+		// Creates a connection factory of type ActiveMQ using the
 		ConnectionFactory factory = new ActiveMQConnectionFactory("admin", "admin", 
 				"tcp://localhost:61616");
 		
 		try {
 			Connection connection = factory.createConnection();
-			Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
+			Session session = connection.createSession(false, Session.CLIENT_ACKNOWLEDGE);
 			Destination destination = session.createQueue("demo");
 			
 			String[] messages = {"First Message", "Second Message", "Third Message",
 					"Fourth Message"};
-			
+
 			MessageProducer producer = session.createProducer(destination);
 			
 			for (String message : messages) {
@@ -31,8 +32,8 @@ public class Publisher {
 				producer.send(textMessage);
 			}
 			
-			System.out.println("Message Published");
-			// close resources
+			System.out.println("Messages were published");
+			// close jms resources
 			producer.close();
 			session.close();
 			connection.close();

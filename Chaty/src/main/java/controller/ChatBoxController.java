@@ -134,7 +134,7 @@ public class ChatBoxController implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/chatRooms.fxml"));
         Parent root = loader.load();
 
-        primaryStage.setScene(new Scene(root, 600, 800));
+        primaryStage.setScene(new Scene(root, 600, 600));
         primaryStage.setTitle(TitleUtils.CHAT_ROOMS_TITLE);
         primaryStage.show();
     }
@@ -257,10 +257,10 @@ public class ChatBoxController implements Initializable {
         this.messageBox.setOnKeyPressed(keyEvent -> {
             if (keyEvent.getCode().equals(KeyCode.ENTER)) {
                 performSendMessage();
-            }
-
-            if (StringUtils.isNotBlank(this.errorLabel.getText())) {
-                this.errorLabel.setText("");
+            } else {
+                if (StringUtils.isNotBlank(this.errorLabel.getText())) {
+                    this.errorLabel.setText("");
+                }
             }
         });
 

@@ -61,11 +61,11 @@ public class LoginController implements Initializable {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-            }
-
-            // if there is value in the error label remove it
-            if (StringUtils.isNotBlank(this.errorLabel.getText())) {
-                this.errorLabel.setText("");
+            } else {
+                // if there is value in the error label remove it
+                if (StringUtils.isNotBlank(this.errorLabel.getText())) {
+                    this.errorLabel.setText("");
+                }
             }
         });
     }
