@@ -12,6 +12,7 @@ Docker image of activemq can be pulled using the following command:
 ```
 docker pull jof34/dummy-active-mq
 ```
+Run the container using the following command:
 ```
 docker run --name=activemq -p 8161:8161 -p 5672:5672 -p 61613:61613 -p 61614:61614 -p 61616:61616 -p 1883:1883  jof34/dummy-active-mq
 ```
