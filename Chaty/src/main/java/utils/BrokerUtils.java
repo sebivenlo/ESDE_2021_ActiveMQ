@@ -1,7 +1,7 @@
 package utils;
 
 /**
- * Class which holds info of the Queues
+ * Class which holds info of the Broker
  */
 public class BrokerUtils {
 
