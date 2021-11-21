@@ -9,7 +9,7 @@ Prequisites:
 5. Docker installed
 
 
-Docker image of activemq can be pulled using the following command:
+Docker image of activemq that is going to be used for demonstration can be pulled using the following command:
 ```
 docker pull jof34/dummy-active-mq
 ```
