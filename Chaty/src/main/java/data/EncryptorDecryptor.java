@@ -9,13 +9,10 @@ import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.SecretKeySpec;
-import java.io.IOException;
-import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.KeySpec;
 import java.util.Base64;
-import java.util.Properties;
 
 /**
  * Class which helps with encrypting decrypting values
@@ -60,7 +57,7 @@ public class EncryptorDecryptor {
 
 
     /**
-     * Decrypts the giving value
+     * Decrypts the given value
      *
      * @param valueToDecrypt value to decrypt
      * @return the decrypted value
