@@ -18,7 +18,7 @@ import java.util.HashMap;
 /**
  * Runnable which listens to the given topic and updates its participants
  */
-public class ParticipantsUpdateRunnable implements Runnable {
+public class ParticipantsUpdateRunnable implements Runnable, Terminatable {
 
     private ListView participants;
     private Label noOfUsers;
@@ -52,6 +52,7 @@ public class ParticipantsUpdateRunnable implements Runnable {
     /**
      * Method which is used to terminate the current thread and its resources
      */
+    @Override
     public void terminator() {
         try {
             this.messageConsumer.close();
@@ -127,8 +128,8 @@ public class ParticipantsUpdateRunnable implements Runnable {
      * @param connectionId activemq connection id
      * @return part of the connection id
      */
-    private String getConnectionIdPart(String connectionId){
+    private String getConnectionIdPart(String connectionId) {
         String[] connectionIdSplit = connectionId.split("-");
-        return connectionId.replaceAll("-"+connectionIdSplit[4], "");
+        return connectionId.replaceAll("-" + connectionIdSplit[4], "");
     }
 }

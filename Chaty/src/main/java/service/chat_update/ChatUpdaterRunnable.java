@@ -27,7 +27,7 @@ import javax.jms.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ChatUpdaterRunnable implements Runnable {
+public class ChatUpdaterRunnable implements Runnable, Terminatable {
 
     private VBox chatBox;
     private MQService activeMQService;
@@ -71,6 +71,7 @@ public class ChatUpdaterRunnable implements Runnable {
     /**
      * Method which is used to terminate the current thread and its resources
      */
+    @Override
     public void terminator() {
         try {
             this.messageConsumer.close();

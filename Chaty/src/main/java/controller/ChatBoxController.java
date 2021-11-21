@@ -219,27 +219,18 @@ public class ChatBoxController implements Initializable {
     }
 
     /**
-     * Sets a listener of what to do when the current stage is closing
+     * Sets a listener of what to do when the current - chat stage is closing
      *
      * @param stage Current active Stage
      */
     public void setStageExit(Stage stage) {
         stage.setOnCloseRequest(event -> {
-            // terminate the thread and its resources and kill it!!!!
+            // terminate the jms resources
             this.chatUpdaterRunnable.terminator();
             this.participantsUpdateRunnable.terminator();
             // interrupt the threads
             this.participantsUpdater.interrupt();
             this.updater.interrupt();
-            try {
-                // make sure that the thread dies
-                this.updater.join();
-                this.participantsUpdater.join();
-                // reset topic name
-                ChatRoomController.TOPIC_NAME = "";
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
         });
     }
 
