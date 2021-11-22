@@ -39,6 +39,7 @@ public class Consumer {
                     e.printStackTrace();
                 }
             });
+            // star the connection
             connection.start();
         } catch (JMSException e) {
             e.printStackTrace();
