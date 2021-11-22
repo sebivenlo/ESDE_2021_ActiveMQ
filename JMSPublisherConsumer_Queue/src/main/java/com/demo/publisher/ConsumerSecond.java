@@ -1,18 +1,10 @@
 package com.demo.publisher;
 
-import javax.jms.Connection;
-import javax.jms.ConnectionFactory;
-import javax.jms.Destination;
-import javax.jms.JMSException;
-import javax.jms.Message;
-import javax.jms.MessageConsumer;
-import javax.jms.MessageListener;
-import javax.jms.Session;
-import javax.jms.TextMessage;
-
 import org.apache.activemq.ActiveMQConnectionFactory;
 
-public class Consumer {
+import javax.jms.*;
+
+public class ConsumerSecond {
 
     public static void main(String[] args) throws JMSException {
         ConnectionFactory factory = new ActiveMQConnectionFactory("admin", "admin",
