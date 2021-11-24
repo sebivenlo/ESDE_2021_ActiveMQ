@@ -46,7 +46,7 @@ public class EncryptorDecryptor {
             KeySpec spec = new PBEKeySpec("abcjs1345123".toCharArray(), "bdsfdsasd235423".getBytes(), 65536, 256);
             SecretKey tmp = this.factory.generateSecret(spec);
             SecretKeySpec secretKey = new SecretKeySpec(tmp.getEncoded(), "AES");
-            this.cipher.init(Cipher.ENCRYPT_MODE, secretKey, ivSpec);
+            this.cipher.init(Cipher.ENCRYPT_MODE, secretKey, this.ivSpec);
             return Base64.getEncoder()
                     .encodeToString(cipher.doFinal(valueToEncrypt.getBytes(StandardCharsets.UTF_8)));
         } catch (Exception e) {

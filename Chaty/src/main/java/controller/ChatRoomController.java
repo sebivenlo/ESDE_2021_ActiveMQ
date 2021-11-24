@@ -14,8 +14,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lombok.Getter;
 import lombok.Setter;
+import service.broker_info.MQBrokerInfoRetriever;
 import service.broker_info.ActiveMQBrokerInfoRetriever;
-import service.broker_info.ActiveMQBrokerInfoRetrieverImpl;
 import utils.TitleUtils;
 
 import java.io.IOException;
@@ -80,7 +80,7 @@ public class ChatRoomController implements Initializable {
      * Retrieves the available chatrooms and displays them
      */
     private void createChatRooms() {
-        ActiveMQBrokerInfoRetriever brokerInfoRetriever = new ActiveMQBrokerInfoRetrieverImpl();
+        MQBrokerInfoRetriever brokerInfoRetriever = new ActiveMQBrokerInfoRetriever();
         // retrieve the chat room names from the available topics
         List<String> chatRooms = brokerInfoRetriever.getTopics();
         // populate the list

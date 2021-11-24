@@ -21,7 +21,7 @@ public class ActiveMQService implements MQService {
      */
     /**
      * Creates a JMS {@link Connection} using the fields of the {@link BrokerUtils} and a JMS {@link ConnectionFactory} of type
-     * {@link ActiveMQConnectionFactory} in order to create a connection to the given ActiveMQ broker
+     * {@link ActiveMQConnectionFactory} in order to generate a new connection to the given ActiveMQ broker
      *
      * @return a JMS {@link Connection}
      * @throws JMSException
@@ -60,7 +60,7 @@ public class ActiveMQService implements MQService {
      */
 
     /**
-     * Create a JMS {@link Topic} object using the passed JMS {@link Session} and topic name
+     * Creates a JMS {@link Topic} object using the passed JMS {@link Session} and topic name
      *
      * @param session   {@link Session}
      * @param topicName the topic name
@@ -99,7 +99,7 @@ public class ActiveMQService implements MQService {
      */
 
     /**
-     * Create a {@link MessageConsumer} using the given {@link Session} and {@link Topic} and a subscriber name
+     * Creates a {@link MessageConsumer} using the given {@link Session} and {@link Topic} and a subscriber name
      *
      * @param session        {@link Session}
      * @param topic          {@link Topic} object
