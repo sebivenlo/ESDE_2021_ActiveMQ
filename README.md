@@ -1,6 +1,6 @@
 # ActiveMQ_ESDE_FK
 
-Prequisites:
+Prerequisites:
 
 1. A Java IDEA (we prefer Intellij IDE - Ultimate edition - its free as a student https://www.jetbrains.com/community/education/#students)
 2. How to set java jdk in Intellij: https://www.jetbrains.com/help/idea/sdk.html#change-project-sdk
