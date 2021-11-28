@@ -159,7 +159,7 @@ public class ChatBoxController implements Initializable {
         setStageExit(currentStage);
 
         MQService activeMQService = new ActiveMQService();
-
+        // Hint: use the activeMQService object
         try {
             // 2.1.1 Create a connection object using the activeMQService object
             Connection connection =
@@ -177,7 +177,7 @@ public class ChatBoxController implements Initializable {
              */
             sendMessage(producer, session, this.messageBox.getText());
 
-            // close the connection, session and  producer to save resources
+            // close the connection, session and  producer
             producer.close();
             session.close();
             connection.close();
@@ -201,12 +201,12 @@ public class ChatBoxController implements Initializable {
      * @throws JMSException
      */
     private void sendMessage(MessageProducer messageProducer, Session session, String text) throws JMSException {
-        // 2.2.1 Create Message object using the given Session parameter
+        // 2.2.1 Create Message object using the given Session parameter e.g. session.createMessage()
         Message message =
         // create message and user
         User user = new User(LoginController.USERNAME, LoginController.SUBSCRIBER_NUMBER, this.colour.toString());
         ChatMessage msg = new ChatMessage(text, ChatHelper.returnCurrentLocalDateTimeAsString(), user);
-        // chat message as json
+        // converts chat msg object into a gson string
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         // encrypt the message
         this.encryptorDecryptor = new EncryptorDecryptor();
@@ -214,7 +214,7 @@ public class ChatBoxController implements Initializable {
         // 2.2.2 Pass the chatMessageAsJson as an ObjectProperty of the message using the setObjectProperty(MESSAGE, chatMessageAsJson)
         //  MESSAGE is a field already set in the BrokerUtils helper class
         message.setObjectProperty();
-        // 2.2.3 use the producer to send the message
+        // 2.2.3 use the producer to send the message e.g. send(message)
         messageProducer.
     }
 
