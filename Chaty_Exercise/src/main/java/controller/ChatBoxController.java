@@ -159,7 +159,7 @@ public class ChatBoxController implements Initializable {
         setStageExit(currentStage);
 
         MQService activeMQService = new ActiveMQService();
-        // Hint: use the activeMQService object
+        // Hint: use the activeMQService object from line 162 (aka directly above)
         try {
             // 2.1.1 Create a connection object using the activeMQService object
             Connection connection =
