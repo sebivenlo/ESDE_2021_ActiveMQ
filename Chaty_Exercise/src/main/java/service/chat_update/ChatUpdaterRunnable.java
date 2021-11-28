@@ -94,7 +94,7 @@ public class ChatUpdaterRunnable implements Runnable, Terminatable {
             this.messageConsumer.setMessageListener(message -> {
                 try {
                     // 3.2.1 Retrieve a message from the message properties using the MESSAGE field in the BrokerUtils
-                    // e.g. BrokerUtils.MESSAGE
+                    // e.g. message.getObjectProperty(BrokerUtils.MESSAGE)
                     String retrievedMessageAsString = (String) message.
                     String decryptedMessage = encryptorDecryptor.decrypt(retrievedMessageAsString);
                     ChatMessage receivedChatMessage = gson.fromJson(decryptedMessage, ChatMessage.class);
