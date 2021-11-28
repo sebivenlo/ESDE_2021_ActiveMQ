@@ -8,7 +8,7 @@ Prequisites:
 4. Download ActiveMQ for your operating system (you won't need it to run it a docker image will be provided to you) - 5.16.3 - https://activemq.apache.org/components/classic/download/
 5. Docker installed
 
-6. The got repo ssh is https://github.com/sebivenlo/ESDE_2021_ActiveMQ.git
+6. The git repo ssh is https://github.com/sebivenlo/ESDE_2021_ActiveMQ.git
 
 
 Docker image of activemq that is going to be used for demonstration can be pulled using the following command:
