@@ -2,7 +2,6 @@ package com.demo.topic;
 
 import javax.jms.*;
 
-import javafx.scene.paint.Color;
 import org.apache.activemq.ActiveMQConnectionFactory;
 
 import java.time.LocalDateTime;
@@ -16,33 +15,37 @@ public class Publisher {
     private static String TIME = "Time";
     private static String MESSAGE = "Message";
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws JMSException {
         ConnectionFactory factory = new ActiveMQConnectionFactory("admin", "admin",
                 "tcp://localhost:61616");
-
+        Connection connection = null;
+        Session session = null;
+        MessageProducer producer= null;
         try {
-            Connection connection = factory.createConnection();
+            connection = factory.createConnection();
 
-            Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
+            session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
 
             Destination destination = session.createTopic("Topic-Name");
 
-            MessageProducer producer = session.createProducer(destination);
+            producer = session.createProducer(destination);
 
             Message message = session.createMessage();
             message.setObjectProperty(TIME, returnCurrentLocalDateTimeAsString());
-            message.setObjectProperty(USER, "Test-USer");
-            message.setObjectProperty(MESSAGE, "Heio");
+            message.setObjectProperty(USER, "Test-User");
+            message.setObjectProperty(MESSAGE, "Hello");
 
             producer.send(message);
 
             System.out.println("Message published to topic");
+
+        } catch (JMSException e) {
+            e.printStackTrace();
+        } finally {
             // close resources
             producer.close();
             session.close();
             connection.close();
-        } catch (JMSException e) {
-            e.printStackTrace();
         }
     }
 

@@ -1,14 +1,6 @@
 package com.demo.topic;
 
-import javax.jms.Connection;
-import javax.jms.ConnectionFactory;
-import javax.jms.JMSException;
-import javax.jms.Message;
-import javax.jms.MessageConsumer;
-import javax.jms.MessageListener;
-import javax.jms.Session;
-import javax.jms.TextMessage;
-import javax.jms.Topic;
+import javax.jms.*;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
 
@@ -16,38 +8,47 @@ import java.util.Random;
 
 public class Consumer {
 
-	private static String USER = "User";
-	private static String TIME = "Time";
-	private static String MESSAGE = "Message";
+    private static String USER = "User";
+    private static String TIME = "Time";
+    private static String MESSAGE = "Message";
 
 
-	public static void main(String[] args) {
-		ConnectionFactory factory = new ActiveMQConnectionFactory("admin", "admin", 
-				"tcp://localhost:61616");
-		
-		try {
-			Random rand = new Random();
-			int subNumber = rand.nextInt(1000);
-			Connection connection = factory.createConnection();
-			connection.setClientID("Consumer-" + subNumber);
+    public static void main(String[] args) throws JMSException {
+        ConnectionFactory factory = new ActiveMQConnectionFactory("admin", "admin",
+                "tcp://localhost:61616");
+        Connection connection = null;
+        Session session = null;
+        MessageConsumer consumer = null;
+        try {
+            Random rand = new Random();
+            int subNumber = rand.nextInt(1000);
 
-			Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
-			
-			Topic topic = session.createTopic("Topic-Name");
+            connection = factory.createConnection();
+            connection.setClientID("Consumer-" + subNumber);
 
-			MessageConsumer consumer = session.createDurableSubscriber(topic, "Consumer-" + subNumber);
-			consumer.setMessageListener(message -> {
-				try {
-					System.out.println(message.getObjectProperty(USER) + " " + message.getObjectProperty(TIME));
-					System.out.println(message.getObjectProperty(MESSAGE));
-				} catch (JMSException e) {
-					e.printStackTrace();
-				}
-			});
-			connection.start();
-		} catch (JMSException e) {
-			e.printStackTrace();
-		}
-	}
+            session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
+
+            Topic topic = session.createTopic("Topic-Name");
+
+            consumer = session.createDurableSubscriber(topic, "Consumer-" + subNumber);
+            consumer.setMessageListener(message -> {
+                try {
+                    System.out.println(message.getObjectProperty(USER) + " " + message.getObjectProperty(TIME));
+                    System.out.println(message.getObjectProperty(MESSAGE));
+                } catch (JMSException e) {
+                    e.printStackTrace();
+                }
+            });
+            // star the connection
+            connection.start();
+        } catch (JMSException e) {
+            e.printStackTrace();
+        } finally {
+            // close resources
+            consumer.close();
+            session.close();
+            connection.close();
+        }
+    }
 
 }
