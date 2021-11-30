@@ -6,7 +6,7 @@ import javax.jms.*;
 
 public class ConsumerSecond {
 
-    public static void main(String[] args) throws JMSException {
+    public static void main(String[] args) {
         ConnectionFactory factory = new ActiveMQConnectionFactory("admin", "admin",
                 "tcp://localhost:61616");
         Connection connection = null;

@@ -14,7 +14,7 @@ import org.apache.activemq.ActiveMQConnectionFactory;
 
 public class Consumer {
 
-    public static void main(String[] args) throws JMSException {
+    public static void main(String[] args) {
         ConnectionFactory factory = new ActiveMQConnectionFactory("admin", "admin",
                 "tcp://localhost:61616");
         Connection connection = null;

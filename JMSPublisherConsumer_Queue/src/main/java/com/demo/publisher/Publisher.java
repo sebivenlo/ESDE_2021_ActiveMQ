@@ -22,7 +22,7 @@ public class Publisher {
             Destination destination = session.createQueue("demo");
             // array of strings that are used as message payloads
             String[] messages = {"First Message", "Second Message", "Third Message",
-                    "Fourth Message"};
+                    "Fourth Message", "End Message"};
             // creates a producer using the previous session
             producer = session.createProducer(destination);
 
@@ -32,7 +32,7 @@ public class Publisher {
                 producer.send(textMessage);
             }
 
-            System.out.println("Messages were published");
+            System.out.println("5 Messages were published");
 
         } catch (JMSException e) {
             e.printStackTrace();
