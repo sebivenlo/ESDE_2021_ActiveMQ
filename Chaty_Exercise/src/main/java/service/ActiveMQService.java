@@ -12,7 +12,7 @@ import javax.jms.*;
 public class ActiveMQService implements MQService {
 
     /**
-     * 1. Implement the ActiveMQService methods which create JMS Objects that are need for sending and receiving messages
+     * 1. Implement the ActiveMQService methods that are used to create JMS Objects in order to send/receive messages
      */
 
 
@@ -116,7 +116,6 @@ public class ActiveMQService implements MQService {
     /**
      * 1.6 Create a new MessageProducer using the given session and destination - Hint: One line of code
      */
-
 
     /**
      * Creates a {@link MessageProducer} which is used to send {@link Message} using
