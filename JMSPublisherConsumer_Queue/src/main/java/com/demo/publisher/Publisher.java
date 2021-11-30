@@ -16,8 +16,8 @@ public class Publisher {
         try {
             // creates a new connection using the factory
             connection = factory.createConnection();
-            // creates a new session using the connection with Client Acknowledge mode
-            session = connection.createSession(false, Session.CLIENT_ACKNOWLEDGE);
+            // creates a new session using the connection with AUTO_ACKNOWLEDGE mode
+            session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
             // creates a destination with the passed
             Destination destination = session.createQueue("demo");
             // array of strings that are used as message payloads
