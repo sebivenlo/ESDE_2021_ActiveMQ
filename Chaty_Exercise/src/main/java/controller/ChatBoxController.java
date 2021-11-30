@@ -164,7 +164,7 @@ public class ChatBoxController implements Initializable {
             // 2.1.1 Create a connection object using the activeMQService object
             Connection connection =
 
-            // 2.1.2 Create a session object with the Session.CLIENT_ACKNOWLEDGE
+            // 2.1.2 Create a session object with the Session.AUTO_ACKNOWLEDGE
             Session session =
 
             // 2.1.3 Create a Destination Object using the ChatRoomController.TOPIC_NAME and session as params
