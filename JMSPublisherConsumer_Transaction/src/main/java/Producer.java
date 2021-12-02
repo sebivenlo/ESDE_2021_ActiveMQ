@@ -28,7 +28,7 @@ public class Producer {
                 // sends a new message
                 producer.send(textMessage);
             }
-            // commits the producer actions which puts the messages to the queue
+            // commits the producers actions which puts the messages into the queue
             session.commit();
             System.out.println("5 Messages were published");
 
