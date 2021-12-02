@@ -42,11 +42,6 @@ public class ConsumerSecond {
             connection.start();
         } catch (JMSException e) {
             e.printStackTrace();
-        } finally {
-            // close resources
-            consumer.close();
-            session.close();
-            connection.close();
         }
     }
 
