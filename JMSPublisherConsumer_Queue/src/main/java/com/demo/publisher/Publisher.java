@@ -25,7 +25,7 @@ public class Publisher {
                     "Fourth Message", "End Message"};
             // creates a producer using the previous session
             producer = session.createProducer(destination);
-
+            producer.setDeliveryMode(DeliveryMode.NON_PERSISTENT);
             for (String message : messages) {
                 TextMessage textMessage = session.createTextMessage(message);
                 // sends a new message

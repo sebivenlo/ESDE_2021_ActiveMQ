@@ -13,7 +13,7 @@ public class Consumer {
         try {
             connection = factory.createConnection();
             // Create a session with transaction
-            session = connection.createSession(true, Session.AUTO_ACKNOWLEDGE);
+            session = connection.createSession(true, Session.SESSION_TRANSACTED);
             Destination destination = session.createQueue("demo-2");
 
             consumer = session.createConsumer(destination);
