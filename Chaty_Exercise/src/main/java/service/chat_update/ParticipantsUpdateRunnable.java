@@ -50,7 +50,7 @@ public class ParticipantsUpdateRunnable implements Runnable, Terminatable {
     }
 
     /**
-     * Method which is used to terminate the current thread and its resources
+     * Method which is used to terminate the JMS resources
      */
     @Override
     public void terminator() {
